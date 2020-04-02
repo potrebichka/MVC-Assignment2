@@ -1,0 +1,132 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/umd/popper.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/home/index">Home</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>MVC Assignment 2</h1>
+        </div>
+        <div class="main">
+            <h2>Given amount: @ViewBag.amount</h2>
+            <h3>The highest currency denominations:</h3>
+            @{ 
+                int cur = ViewBag.amount;
+                int temp;
+                int sum;
+            }
+            <table class="table table-striped" style="text-align:center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Currency note</th>
+                        <th scope="col">Count</th>
+                        <th scope="col">=</th>
+                        <th scope="col">Actual value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (cur >= 1000)
+                    {
+                        temp = cur / 1000;
+                        sum = temp * 1000;
+                        <tr>
+                            <td><img src="https://i.insider.com/598b1ff74fc3c0be3f8b684c?width=1100&format=jpeg&auto=webp" alt="Photo of 1000 dollar bill" width="400px"/></td>
+                            <td>
+                                @temp
+                            </td><td />
+                            <td>@sum</td>
+                        </tr>
+                        cur = cur % 1000;
+                    }
+                    @if (cur >= 500)
+                    {
+                        temp = cur / 500;
+                        sum = temp * 500;
+                        <tr>
+                            <td><img src="https://www.investopedia.com/thmb/UnU3w_106LStuuFvY9NQ0sMb4OI=/705x303/filters:no_upscale():max_bytes(150000):strip_icc()/500-59f61bbc6f53ba00115cf254.jpg" alt="Photo of 500 dollar bill" width="400px"/></td>
+                            <td>
+                                @temp
+                            </td><td />
+                            <td>@sum</td>
+                        </tr>
+                        cur = cur % 500;
+                    }
+                    @if (cur >= 100)
+                    {
+                        temp = cur / 100;
+                        sum = temp * 100;
+                        <tr>
+                            <td><img src="https://www.marshu.com/articles/images-website/articles/presidents-on-us-paper-money/one-hundred-100-dollar-bill.jpg" alt="Photo of 100 dollar bill" width="400px"/></td>
+                            <td>@temp</td><td />
+                            <td>@sum</td>
+                        </tr>
+                        cur = cur % 100;
+                    }
+                    @if (cur >= 50)
+                    {
+                        temp = cur / 500;
+                        sum = temp * 500;
+                        <tr>
+                            <td><img src="https://images-na.ssl-images-amazon.com/images/I/91VCowh%2B8tL._AC_SX522_.jpg" alt="Photo of 50 dollar bill" width="400px"/></td>
+                            <td>
+                               @temp
+                            </td><td />
+                            <td>@sum</td>
+                        </tr>
+                        cur = cur % 50;
+                    }
+                    @if (cur >= 10)
+                    {
+                        temp = cur / 10;
+                        sum = temp * 10;
+                <tr>
+                    <td><img src="https://image.shutterstock.com/image-photo/10-us-dollars-bank-note-260nw-302170019.jpg" alt="Photo of 10 dollar bill" width="400px" /></td>
+                    <td>@temp</td>
+                    <td />
+                    <td>@sum</td>
+                </tr>
+                        cur = cur % 10;
+                    }
+                    @if (cur >= 5)
+                    {
+                        temp = cur / 5;
+                        sum = temp * 5;
+                <tr>
+                    <td><img src="https://fakenotesplug.com/wp-content/uploads/2019/01/a819fad2-4cf1-45ec-be93-2e774ab2-600x269.jpg" alt="Photo of 5 dollar bill" width="400px" /></td>
+                    <td>@temp</td>
+                    <td />
+                    <td>@sum</td>
+                </tr>
+                        cur = cur % 5;
+                    }
+                    @if (cur >= 1)
+                    {
+                        <tr>
+                            <td><img src="https://fakenotesplug.com/wp-content/uploads/2019/01/aa2abf48-9386-4475-8374-bf320c6c-1.jpg" alt="Photo of 1 dollar bill" width="400px"/></td>
+                            <td>@cur</td>
+                            <td/>
+                            <td>@cur</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
